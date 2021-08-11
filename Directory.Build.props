@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageTags>AWS Amazon Cloud Security OAuth2 OpenID</PackageTags>
+    <PackageTags>Cythral Brighid Commands</PackageTags>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition="$(Configuration) == ''">Debug</Configuration>
