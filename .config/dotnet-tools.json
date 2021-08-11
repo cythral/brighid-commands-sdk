@@ -7,7 +7,7 @@
       "commands": ["nbgv"]
     },
     "dotnet-format": {
-      "version": "6.0.241101",
+      "version": "6.0.241103",
       "commands": ["dotnet-format"]
     },
     "dotnet-json": {
