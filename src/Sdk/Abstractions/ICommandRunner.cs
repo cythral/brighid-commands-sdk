@@ -4,10 +4,9 @@ using System.Threading.Tasks;
 namespace Brighid.Commands.Sdk
 {
     /// <summary>
-    /// Service that runs a command.
+    /// Service that wraps a command, providing the ability to invoke a command.
     /// </summary>
-    /// <typeparam name="TRequest">The type of request the command takes.</typeparam>
-    public interface ICommandRunner<in TRequest>
+    public interface ICommandRunner
     {
         /// <summary>
         /// Runs the command.
@@ -15,6 +14,6 @@ namespace Brighid.Commands.Sdk
         /// <param name="context">The context to use when running the command.</param>
         /// <param name="cancellationToken">Token used to cancel the operation.</param>
         /// <returns>Reply to send back to the user.</returns>
-        Task<string> Run(TRequest context, CancellationToken cancellationToken = default);
+        Task<string> Run(CommandContext context, CancellationToken cancellationToken = default);
     }
 }
