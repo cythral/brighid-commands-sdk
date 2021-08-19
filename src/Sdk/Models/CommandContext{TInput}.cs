@@ -1,3 +1,4 @@
+using System.IO;
 using System.Security.Claims;
 
 namespace Brighid.Commands.Sdk
@@ -6,7 +7,7 @@ namespace Brighid.Commands.Sdk
     /// Context holder for executing commands.
     /// </summary>
     /// <typeparam name="TInput">The type of input to use.</typeparam>
-    public class CommandContext<TInput>
+    public class CommandContext<TInput> : CommandContext
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandContext{TInput}" /> class.
@@ -21,31 +22,19 @@ namespace Brighid.Commands.Sdk
             string sourceSystem,
             string sourceSystemId
         )
+        : base(
+            MemoryStream.Null,
+            principal,
+            sourceSystem,
+            sourceSystemId
+        )
         {
             Input = input;
-            Principal = principal;
-            SourceSystem = sourceSystem;
-            SourceSystemId = sourceSystemId;
         }
 
         /// <summary>
         /// Gets the input stream containing command arguments and options.
         /// </summary>
         public TInput Input { get; }
-
-        /// <summary>
-        /// Gets the principal invoking the command.
-        /// </summary>
-        public ClaimsPrincipal Principal { get; }
-
-        /// <summary>
-        /// Gets the name of the system this command is being invoked from.
-        /// </summary>
-        public string SourceSystem { get; }
-
-        /// <summary>
-        /// Gets the ID of the sender/channel within the source system the command request originated from.
-        /// </summary>
-        public string SourceSystemId { get; }
     }
 }
