@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../src/Sdk.Generator/build/Brighid.Commands.Sdk.Generator.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <CoreCompileDependsOn>GenerateTestMetadata;RestoreCompilationProjects;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.17.0" />
+        <PackageReference Include="AutoFixture.NUnit3" Version="4.17.0" />
+        <PackageReference Include="FluentAssertions" Version="5.10.3" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+        <PackageReference Include="NSubstitute" Version="4.2.2" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+        <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.11.0" />
+        <PackageReference Include="NuGet.ProjectModel" Version="6.0.0-preview.1.107" />
+        <PackageReference Include="nunit" Version="3.13.2" />
+        <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+        <PackageReference Include="RichardSzalay.MockHttp" Version="6.0.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../src/Sdk/Sdk.csproj" />
+        <ProjectReference Include="../src/Sdk.Core/Sdk.Core.csproj" />
+        <ProjectReference Include="../src/Sdk.Generator/Sdk.Generator.csproj" />
+    </ItemGroup>
+
+    <Target Name="GenerateTestMetadata" DependsOnTargets="GetBuildVersion">
+        <PropertyGroup>
+            <FileContents>
+        $([System.IO.File]::ReadAllText('TestMetadata.txt')
+            .Replace('__TestDirectory__','$(MSBuildThisFileDirectory)')
+            .Replace('__PackageVersion__', '$(PackageVersion)')
+            .Replace('__BaseOutputPath__', '$(MSBuildThisFileDirectory)../bin')
+            .Replace('__BaseIntermediateOutputPath__', '$(MSBuildThisFileDirectory)../obj')
+            .Replace('__OutputPath__', '$(OutputPath)')
+            .Replace('__RestorePackagesPath__', '$(RestorePackagesPath)')
+            .Replace('__TargetFramework__', '$(TargetFramework)')
+            .Replace('__Configuration__', '$(Configuration)')
+        )
+      </FileContents>
+        </PropertyGroup>
+
+        <WriteLinesToFile Lines="$(FileContents)" File="$(IntermediateOutputPath)\TestMetadata.cs" Overwrite="true" />
+    </Target>
+
+    <Target Name="RestoreCompilationProjects" AfterTargets="Restore">
+        <ItemGroup>
+            <CompilationProjects Include="CompilationTests/Projects/**/*.csproj" />
+        </ItemGroup>
+
+        <MSBuild Projects="@(CompilationProjects)" Targets="Restore" Properties="BrighidCommandsVersion=$(PackageVersion)" />
+    </Target>
+
+    <ItemGroup>
+        <Compile Remove="Compilation\Projects\**" />
+        <Compile Include="$(IntermediateOutputPath)\TestMetadata.cs" />
+    </ItemGroup>
+</Project>

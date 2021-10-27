@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>Brighid.Commands.Sdk.Generator</PackageId>
+        <AssemblyName>$(PackageId)</AssemblyName>
+        <NoWarn>NU5128</NoWarn>
+        <BuildOutputTargetFolder>analyzers/dotnet/cs</BuildOutputTargetFolder>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <BeforePack>IncludeExtraPackItems</BeforePack>
+        <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.11.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" PrivateAssets="runtime;analyzers;contentfiles;build" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Sdk.Core/Sdk.Core.csproj" />
+    </ItemGroup>
+
+    <Target Name="IncludeExtraPackItems">
+        <ItemGroup>
+            <None Include="build/" Pack="true" PackagePath="build/" Condition="Exists('build/')" />
+        </ItemGroup>
+    </Target>
+
+    <Target Name="GetDependencyTargetPaths" DependsOnTargets="CopyFilesToOutputDirectory">
+        <ItemGroup>
+            <TargetPathWithTargetPlatformMoniker
+                Include="$(OutputPath)*.dll"
+                Exclude="$(OutputPath)Brighid.Commands.Sdk.Generator.dll"
+                IncludeRuntimeDependency="false" />
+        </ItemGroup>
+    </Target>
+</Project>

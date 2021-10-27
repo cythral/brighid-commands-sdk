@@ -63,6 +63,7 @@ dotnet_diagnostic.SA1633.severity = none
 dotnet_diagnostic.SA1200.severity = none
 
 [tests/**.{cs,csx}]
+
 # Unused parameters
 dotnet_diagnostic.CA1801.severity = none
 dotnet_diagnostic.IDE0060.severity = none
@@ -92,3 +93,4 @@ dotnet_diagnostic.SA1601.severity = none
 [obj/**.cs]
 dotnet_analyzer_diagnostic.category-Style.severity = none
 dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1600.severity = none

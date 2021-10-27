@@ -1,0 +1,20 @@
+<Project>
+    <PropertyGroup>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <Configuration>Debug</Configuration>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <_BasePath>$(MSBuildThisFileDirectory)../../../</_BasePath>
+        <RestorePackagesPath>$(_BasePath).nuget/tests</RestorePackagesPath>
+        <OutputPath>$(_BasePath)bin/CompilationTestProjects/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+        <BaseIntermediateOutputPath>$(_BasePath)obj/CompilationTestProjects/$(MSBuildProjectName)</BaseIntermediateOutputPath>
+        <CompilerGeneratedFilesOutputPath>$(_BasePath)obj/CompilationTestProjects/$(MSBuildProjectName)/$(Configuration)</CompilerGeneratedFilesOutputPath>
+        <RestoreLocation>$(_BasePath)bin/Packages/$(Configuration)</RestoreLocation>
+        <RestoreAdditionalProjectSources Condition="Exists($(RestoreLocation))">
+            $(RestoreLocation);
+            $(RestoreAdditionalProjectSources)
+        </RestoreAdditionalProjectSources>
+    </PropertyGroup>
+
+</Project>
