@@ -50,7 +50,7 @@
         <WriteLinesToFile Lines="$(FileContents)" File="$(IntermediateOutputPath)\TestMetadata.cs" Overwrite="true" />
     </Target>
 
-    <Target Name="RestoreCompilationProjects" AfterTargets="Restore">
+    <Target Name="RestoreCompilationProjects">
         <ItemGroup>
             <CompilationProjects Include="CompilationTests/Projects/**/*.csproj" />
         </ItemGroup>
