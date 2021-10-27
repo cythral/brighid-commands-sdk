@@ -1,0 +1,9 @@
+<Project>
+    <PropertyGroup>
+        <BrighidCommandsAdditionalProbingPath>$(RestorePackagesPath)</BrighidCommandsAdditionalProbingPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <CompilerVisibleProperty Include="BrighidCommandsAdditionalProbingPath" />
+    </ItemGroup>
+</Project>
