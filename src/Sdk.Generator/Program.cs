@@ -14,7 +14,7 @@ namespace Brighid.Commands.Sdk.Generator
     [Generator]
     public class Program : ISourceGenerator
     {
-        private readonly ClassSyntaxReceiver receiver = new(new TypeUtils());
+        private readonly ClassSyntaxReceiver receiver = new();
 
         /// <inheritdoc />
         public void Initialize(GeneratorInitializationContext context)
