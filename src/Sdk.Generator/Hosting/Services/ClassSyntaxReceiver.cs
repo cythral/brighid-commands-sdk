@@ -13,18 +13,6 @@ namespace Brighid.Commands.Sdk.Generator
     public class ClassSyntaxReceiver : ISyntaxContextReceiver
     {
         private readonly List<CommandContext> results = new();
-        private readonly ITypeUtils typeUtils;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ClassSyntaxReceiver" /> class.
-        /// </summary>
-        /// <param name="typeUtils">Utilities for interacting with types and symbols.</param>
-        public ClassSyntaxReceiver(
-            ITypeUtils typeUtils
-        )
-        {
-            this.typeUtils = typeUtils;
-        }
 
         /// <summary>
         /// Gets the resulting contexts.
@@ -42,18 +30,15 @@ namespace Brighid.Commands.Sdk.Generator
             var attributes = context.SemanticModel.GetDeclaredSymbol(classSyntaxNode)?.GetAttributes() ?? ImmutableArray.Create<AttributeData>();
             var query = from attr in attributes
                         let attrClass = attr.AttributeClass
-                        where typeUtils.IsSymbolEqualToType(attrClass, typeof(CommandAttribute))
-                        select (attr, typeUtils.LoadAttributeData<CommandAttribute>(attr));
+                        where attrClass.ToDisplayString() == "Brighid.Commands.Sdk.CommandAttribute"
+                        select attr;
 
             if (query.Any())
             {
-                var (attributeData, attribute) = query.First();
-
                 results.Add(new CommandContext(
                     tree: classSyntaxNode.SyntaxTree,
                     semanticModel: context.SemanticModel,
-                    attribute: attribute,
-                    attributeData: attributeData,
+                    attributeData: query.First(),
                     classDeclaration: classSyntaxNode
                 ));
             }

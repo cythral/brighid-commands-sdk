@@ -83,7 +83,7 @@ namespace Brighid.Commands.Sdk.Generator.CommandRegistrators
         {
             var classType = syntaxUtils.GetFullTypeName(context.ClassDeclaration);
             var inputType = syntaxUtils.GetImplementedBaseTypeArgumentName(context.SemanticModel, context.ClassDeclaration, "Brighid.Commands.Sdk.ICommand", 0);
-            var startupTypeSymbol = typeUtils.GetNamedTypeArgument(context.AttributeData, nameof(CommandAttribute.StartupType));
+            var startupTypeSymbol = typeUtils.GetNamedTypeArgument(context.AttributeData, "StartupType");
             var startupType = startupTypeSymbol?.ToDisplayString();
 
             var genericArguments = startupType == null

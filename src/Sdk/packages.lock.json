@@ -1453,7 +1453,6 @@
       "Brighid.Commands.Sdk.Generator": {
         "type": "Project",
         "dependencies": {
-          "Brighid.Commands.Sdk.Core": "1.0.0",
           "Microsoft.CodeAnalysis": "3.11.0",
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.11.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",

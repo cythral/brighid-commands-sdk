@@ -22,10 +22,6 @@
         <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="../Sdk.Core/Sdk.Core.csproj" />
-    </ItemGroup>
-
     <Target Name="IncludeExtraPackItems">
         <ItemGroup>
             <None Include="build/" Pack="true" PackagePath="build/" Condition="Exists('build/')" />

@@ -1448,12 +1448,6 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
-      },
-      "Brighid.Commands.Sdk.Core": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "5.0.2"
-        }
       }
     }
   }
