@@ -3,7 +3,7 @@
 
     <PropertyGroup>
         <IsPackable>false</IsPackable>
-        <CoreCompileDependsOn>GenerateTestMetadata;RestoreCompilationProjects;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+        <CoreCompileDependsOn>GenerateTestMetadata;$(CoreCompileDependsOn)</CoreCompileDependsOn>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
@@ -50,7 +50,7 @@
         <WriteLinesToFile Lines="$(FileContents)" File="$(IntermediateOutputPath)\TestMetadata.cs" Overwrite="true" />
     </Target>
 
-    <Target Name="RestoreCompilationProjects">
+    <Target Name="RestoreCompilationProjects" BeforeTargets="VSTest" DependsOnTargets="Build">
         <ItemGroup>
             <CompilationProjects Include="CompilationTests/Projects/**/*.csproj" />
         </ItemGroup>
