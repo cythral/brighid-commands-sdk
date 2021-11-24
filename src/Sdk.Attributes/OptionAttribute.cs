@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace Brighid.Commands.Sdk
 {
@@ -6,6 +7,7 @@ namespace Brighid.Commands.Sdk
     /// Annotates a command option.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [Conditional("CodeGeneration")]
     public class OptionAttribute : Attribute
     {
         /// <summary>

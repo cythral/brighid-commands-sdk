@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace Brighid.Commands.Sdk
 {
@@ -6,6 +7,7 @@ namespace Brighid.Commands.Sdk
     /// Attribute to indicate what type of startup class to use for a Command.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    [Conditional("CodeGeneration")]
     public class CommandAttribute : Attribute
     {
         /// <summary>

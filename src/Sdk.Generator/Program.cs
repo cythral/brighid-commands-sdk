@@ -40,7 +40,7 @@ namespace Brighid.Commands.Sdk.Generator
         {
             var additionalProbingPath = GetAdditionalProbingPath(context);
             var dllsInProbingPath = from file in Directory.GetFiles(additionalProbingPath, $"*.dll", SearchOption.AllDirectories)
-                                    where file.Contains("netstandard") || file.Contains("net5.0")
+                                    where file.Contains("netstandard") || file.Contains("net6.0") || file.Contains("net5.0")
                                     select file;
 
             AssemblyLoadContext.Default.Resolving += (_, name) =>
