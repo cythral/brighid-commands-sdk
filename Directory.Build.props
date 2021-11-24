@@ -28,6 +28,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <BinaryLogger>$(MSBuildThisFileDirectory)obj\logs\$(OS).binlog</BinaryLogger>

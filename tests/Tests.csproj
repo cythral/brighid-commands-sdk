@@ -29,6 +29,8 @@
         <ProjectReference Include="../src/Sdk/Sdk.csproj" />
         <ProjectReference Include="../src/Sdk.Core/Sdk.Core.csproj" />
         <ProjectReference Include="../src/Sdk.Generator/Sdk.Generator.csproj" />
+        <ProjectReference Include="../src/Sdk.Models/Sdk.Models.csproj" />
+        <ProjectReference Include="../src/Sdk.PackageTool/Sdk.PackageTool.csproj" />
     </ItemGroup>
 
     <Target Name="GenerateTestMetadata" DependsOnTargets="GetBuildVersion">

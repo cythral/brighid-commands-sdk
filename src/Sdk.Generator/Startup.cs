@@ -1,4 +1,5 @@
 using Brighid.Commands.Sdk.Generator.CommandRegistrators;
+using Brighid.Commands.Sdk.Generator.TemplateMetadata;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -49,6 +50,9 @@ namespace Brighid.Commands.Sdk.Generator
             services.AddSingleton<ITypeUtils, TypeUtils>();
             services.AddSingleton<ISyntaxUtils, SyntaxUtils>();
             services.AddSingleton<ICommandRegistratorGenerator, CommandRegistratorGenerator>();
+            services.AddSingleton<ITemplateMetadataGenerator, TemplateMetadataGenerator>();
+            services.AddSingleton<ICommandParameterAnalyzer, CommandParameterAnalyzer>();
+            services.AddSingleton<ICommandAttributeUtils, CommandAttributeUtils>();
             services.AddSingleton(receiver);
             services.AddLogging(options =>
             {

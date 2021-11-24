@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Brighid.Commands.Sdk.Models</PackageId>
+        <AssemblyName>$(PackageId)</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="YamlDotNet" Version="11.2.1" />
+    </ItemGroup>
+
+</Project>

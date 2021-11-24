@@ -9,6 +9,13 @@ namespace Brighid.Commands.Sdk.Generator
     public interface ISyntaxUtils
     {
         /// <summary>
+        /// Gets the value of a build property.
+        /// </summary>
+        /// <param name="name">The name of the build property to get a value for.</param>
+        /// <returns>The value of the build property, or null if it wasn't found.</returns>
+        string? GetBuildProperty(string name);
+
+        /// <summary>
         /// Gets the namespace of a class declaration.
         /// </summary>
         /// <param name="classDeclaration">The class declaration to get a namespace for.</param>

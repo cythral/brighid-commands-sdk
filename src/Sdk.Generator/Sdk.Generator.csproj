@@ -21,6 +21,10 @@
         <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" PrivateAssets="runtime;analyzers;contentfiles;build" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="../Sdk.Models/Sdk.Models.csproj" />
+    </ItemGroup>
+
     <Target Name="IncludeExtraPackItems">
         <ItemGroup>
             <None Include="build/" Pack="true" PackagePath="build/" Condition="Exists('build/')" />
@@ -29,10 +33,7 @@
 
     <Target Name="GetDependencyTargetPaths" DependsOnTargets="CopyFilesToOutputDirectory">
         <ItemGroup>
-            <TargetPathWithTargetPlatformMoniker
-                Include="$(OutputPath)*.dll"
-                Exclude="$(OutputPath)Brighid.Commands.Sdk.Generator.dll"
-                IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(OutputPath)*.dll" Exclude="$(OutputPath)Brighid.Commands.Sdk.Generator.dll" IncludeRuntimeDependency="false" />
         </ItemGroup>
     </Target>
 </Project>

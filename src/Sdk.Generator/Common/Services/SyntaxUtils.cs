@@ -11,6 +11,26 @@ namespace Brighid.Commands.Sdk.Generator
     /// <inheritdoc />
     public class SyntaxUtils : ISyntaxUtils
     {
+        private readonly GeneratorContext generatorContext;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SyntaxUtils" /> class.
+        /// </summary>
+        /// <param name="generatorContext">The source generator execution context.</param>
+        public SyntaxUtils(
+            GeneratorContext generatorContext
+        )
+        {
+            this.generatorContext = generatorContext;
+        }
+
+        /// <inheritdoc />
+        public string? GetBuildProperty(string name)
+        {
+            generatorContext.ExecutionContext.AnalyzerConfigOptions.GlobalOptions.TryGetValue($"build_property.{name}", out var value);
+            return value;
+        }
+
         /// <inheritdoc />
         public NamespaceDeclarationSyntax? GetNamespaceOfClassDeclaration(ClassDeclarationSyntax classDeclaration)
         {

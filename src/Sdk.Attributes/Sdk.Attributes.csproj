@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Brighid.Commands.Sdk.Attributes</PackageId>
+        <AssemblyName>$(PackageId)</AssemblyName>
+    </PropertyGroup>
+
+</Project>
