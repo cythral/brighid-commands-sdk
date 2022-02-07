@@ -1,5 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <AfterBuild>RunBrighidCommandsSdkPackageTool</AfterBuild>
-    </PropertyGroup>
-</Project>
