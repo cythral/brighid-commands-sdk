@@ -1535,8 +1535,7 @@
         "dependencies": {
           "Brighid.Commands.Sdk.Attributes": "1.0.0",
           "Brighid.Commands.Sdk.Core": "1.0.0",
-          "Brighid.Commands.Sdk.Generator": "1.0.0",
-          "Brighid.Commands.Sdk.PackageTool": "1.0.0"
+          "Brighid.Commands.Sdk.Generator": "1.0.0"
         }
       },
       "Brighid.Commands.Sdk.Attributes": {
