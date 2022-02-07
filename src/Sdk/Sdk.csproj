@@ -10,7 +10,7 @@
 
     <ItemGroup>
         <ProjectReference Include="../Sdk.Core/Sdk.Core.csproj" PrivateAssets="none" />
-        <ProjectReference Include="../Sdk.Generator/Sdk.Generator.csproj" PrivateAssets="none" />
+        <ProjectReference Include="../Sdk.Generator/Sdk.Generator.csproj" PrivateAssets="runtime" />
         <ProjectReference Include="../Sdk.Attributes/Sdk.Attributes.csproj" PrivateAssets="runtime" />
         <ProjectReference Include="../Sdk.PackageTool/Sdk.PackageTool.csproj" PrivateAssets="runtime" />
     </ItemGroup>

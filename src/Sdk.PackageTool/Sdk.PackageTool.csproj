@@ -21,7 +21,7 @@
 
     <Target Name="IncludeExtraPackItems">
         <ItemGroup>
-            <None Include="build/" Pack="true" PackagePath="build/" />
+            <None Include="buildTransitive/" Pack="true" PackagePath="buildTransitive/" />
             <None Include="$(OutputPath)/$(PackageId).deps.json" Pack="true" PackagePath="lib/$(TargetFramework)" />
         </ItemGroup>
     </Target>
