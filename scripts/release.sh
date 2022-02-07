@@ -22,6 +22,7 @@ function bump_version()
 {
     echo -n "Enter next next version (without v prefix): "
     read -r nextVersion
+    nextVersion=$(echo $nextVersion | tr -d 'v')
     git checkout -b release-prep/v$nextVersion > /dev/null
 
     newVersionJsonContent=$(cat version.json | jq ".version=\"$nextVersion\"" | jq .)
