@@ -27,7 +27,7 @@ namespace Brighid.Commands.Sdk.Models.CloudFormation
         /// <summary>
         /// Gets or sets the resource type.
         /// </summary>
-        public string Type { get; set; } = "Custom::Brighid::Command";
+        public string Type { get; set; } = "Custom::BrighidCommand";
 
         /// <summary>
         /// Gets or sets the resource's properties.
