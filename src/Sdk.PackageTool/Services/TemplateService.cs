@@ -26,6 +26,7 @@ namespace Brighid.Commands.Sdk.PackageTool
         {
             serializer = new SerializerBuilder()
                 .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
+                .WithTypeConverter(new CommandParameterTypeConverter())
                 .Build();
 
             this.commandService = commandService;

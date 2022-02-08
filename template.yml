@@ -1,0 +1,31 @@
+Resources:
+  Command0:
+    Type: Custom::BrighidCommand
+    Properties:
+      ServiceToken: '{{resolve:ssm:/brighid/commands/resources/command/resource-arn}}'
+      Type: Embedded
+      Name: echo
+      EmbeddedLocation:
+        DownloadURL: s3://cythral-test-bucket/qwrQPhC6z_v6dUwFLJY03SRRkdUwRzeAV2noyzJ-I7M=
+        AssemblyName: CoreCommands
+        TypeName: Brighid.Commands.CoreCommands.Echo.EchoCommandRegistrator
+        Checksum: qwrQPhC6z_v6dUwFLJY03SRRkdUwRzeAV2noyzJ-I7M=
+      Parameters:
+      - n: Message
+        d: The message to echo back to the user.
+        t: 0
+        i: 0
+      IsEnabled: true
+  Command1:
+    Type: Custom::BrighidCommand
+    Properties:
+      ServiceToken: '{{resolve:ssm:/brighid/commands/resources/command/resource-arn}}'
+      Type: Embedded
+      Name: ping
+      EmbeddedLocation:
+        DownloadURL: s3://cythral-test-bucket/qwrQPhC6z_v6dUwFLJY03SRRkdUwRzeAV2noyzJ-I7M=
+        AssemblyName: CoreCommands
+        TypeName: Brighid.Commands.CoreCommands.Ping.PingCommandRegistrator
+        Checksum: qwrQPhC6z_v6dUwFLJY03SRRkdUwRzeAV2noyzJ-I7M=
+      Parameters: []
+      IsEnabled: true
