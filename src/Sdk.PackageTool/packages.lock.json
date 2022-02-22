@@ -4,11 +4,11 @@
     "net6.0": {
       "AWSSDK.S3": {
         "type": "Direct",
-        "requested": "[3.7.7.24, )",
-        "resolved": "3.7.7.24",
-        "contentHash": "uduB0c1wnYVQHcPCxdvSo/Y4Alu3gn4lKDyVTatC6N9XKWusxmOti/smto+mfa2jJMEYpppV6inrCi6x6U9bsg==",
+        "requested": "[3.7.7.25, )",
+        "resolved": "3.7.7.25",
+        "contentHash": "oFtGTJuGNA0drpFZqYq2t7lpDnKokQLJBE0746jo0vNcjx2+lLtL4QZaD2LKo61JgAn0LDVB0S1+0Zg9TPlJjA==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.8, 4.0.0)"
+          "AWSSDK.Core": "[3.7.8.1, 4.0.0)"
         }
       },
       "Microsoft.Extensions.DependencyInjection": {
@@ -100,8 +100,8 @@
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.8",
-        "contentHash": "5D1XMnsmuFd6WUs+hm26XbGnraAYScUqTZ6JXyLYy0D9w0XHoahi6DAJWDjL79Hw2aRbJ905jN5U70Sw/XUzzw=="
+        "resolved": "3.7.8.1",
+        "contentHash": "TqnPuacfd8xBvc7dzVfXr4Fak/Q2mddFnI5TKiuMHgixBWKfvfnDIj17GncerMODpNr8IRuwUKrMDUWB3deQUw=="
       },
       "Microsoft.Build.Tasks.Git": {
         "type": "Transitive",
