@@ -123,6 +123,25 @@ namespace Brighid.Commands.Sdk.PackageTool
             }
 
             [Test, Auto]
+            public async Task ShouldGenerateTemplateWithScopes(
+                CommandMetadata command,
+                [Target] TemplateService templateService,
+                CancellationToken cancellationToken
+            )
+            {
+                using var stream = new MemoryStream();
+                using var reader = new StreamReader(stream);
+                await templateService.GenerateTemplate(stream, new[] { command }, cancellationToken);
+                stream.Position = 0;
+
+                var serializer = new DeserializerBuilder().Build();
+                var result = serializer.Deserialize<Template>(reader);
+
+                var resource = result!.Resources.ElementAt(0).Value;
+                resource.Properties.Scopes.Should().BeEquivalentTo(command.Scopes);
+            }
+
+            [Test, Auto]
             public async Task ShouldGenerateTemplateWithIsEnabled(
                 CommandMetadata command,
                 [Target] TemplateService templateService,

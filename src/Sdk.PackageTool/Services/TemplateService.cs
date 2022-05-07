@@ -48,6 +48,7 @@ namespace Brighid.Commands.Sdk.PackageTool
                     Type = CommandType.Embedded,
                     RequiredRole = commandMetadata.RequiredRole,
                     Parameters = commandMetadata.Parameters,
+                    Scopes = commandMetadata.Scopes,
                     IsEnabled = true,
                     EmbeddedLocation = await commandService.PackageArtifact(commandMetadata, cancellationToken),
                 };
