@@ -39,6 +39,11 @@ namespace Brighid.Commands.Sdk.Models
         public IEnumerable<CommandParameter> Parameters { get; set; } = Array.Empty<CommandParameter>();
 
         /// <summary>
+        /// Gets or sets the command's scopes.
+        /// </summary>
+        public IEnumerable<string> Scopes { get; set; } = Array.Empty<string>();
+
+        /// <summary>
         /// Gets or sets a value indicating whether or not this command is enabled.
         /// </summary>
         public bool IsEnabled { get; set; }
