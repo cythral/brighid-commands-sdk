@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 namespace Brighid.Commands.Sdk.CompilationTests.EmbeddedCommand
 {
     [Command("test", StartupType = typeof(TestCommandStartup))]
+    [RequiresScope("token")]
     public class TestCommand : ICommand<TestCommandInput>
     {
         public async Task<CommandResult> Run(CommandContext<TestCommandInput> context, CancellationToken cancellationToken = default)
