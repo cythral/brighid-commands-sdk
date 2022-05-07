@@ -52,6 +52,7 @@ namespace Brighid.Commands.Sdk.Generator
             services.AddSingleton<ICommandRegistratorGenerator, CommandRegistratorGenerator>();
             services.AddSingleton<ITemplateMetadataGenerator, TemplateMetadataGenerator>();
             services.AddSingleton<ICommandParameterAnalyzer, CommandParameterAnalyzer>();
+            services.AddSingleton<ICommandScopeAnalyzer, CommandScopeAnalyzer>();
             services.AddSingleton<ICommandAttributeUtils, CommandAttributeUtils>();
             services.AddSingleton(receiver);
             services.AddLogging(options =>

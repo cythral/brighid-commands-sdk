@@ -16,13 +16,15 @@ namespace Brighid.Commands.Sdk.Models
         /// <param name="intermediateOutputPath">The intermediate output path of the command's compilation.</param>
         /// <param name="outputPath">The output path of the command's compilation.</param>
         /// <param name="parameters">The parameters of the command.</param>
+        /// <param name="scopes">The command's requested scopes.</param>
         public CommandMetadata(
             string name,
             string typeName,
             string assemblyName,
             string intermediateOutputPath,
             string outputPath,
-            IEnumerable<CommandParameter> parameters
+            IEnumerable<CommandParameter> parameters,
+            IEnumerable<string> scopes
         )
         {
             Name = name;
@@ -31,6 +33,7 @@ namespace Brighid.Commands.Sdk.Models
             IntermediateOutputPath = intermediateOutputPath;
             OutputPath = outputPath;
             Parameters = parameters;
+            Scopes = scopes;
             Description = null;
             RequiredRole = null;
             StartupType = null;
@@ -65,6 +68,11 @@ namespace Brighid.Commands.Sdk.Models
         /// Gets or sets the command's parameters.
         /// </summary>
         public IEnumerable<CommandParameter> Parameters { get; set; }
+
+        /// <summary>
+        /// Gets or sets the command's scopes.
+        /// </summary>
+        public IEnumerable<string> Scopes { get; set; }
 
         /// <summary>
         /// Gets or sets the command's description.

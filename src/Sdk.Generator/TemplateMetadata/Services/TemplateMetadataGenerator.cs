@@ -10,7 +10,7 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
     {
         private readonly ICommandAttributeUtils commandAttributeUtils;
         private readonly ICommandParameterAnalyzer parameterAnalyzer;
-
+        private readonly ICommandScopeAnalyzer scopeAnalyzer;
         private readonly ISyntaxUtils syntaxUtils;
 
         /// <summary>
@@ -18,15 +18,18 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
         /// </summary>
         /// <param name="commandAttributeUtils">Utilities for working with command attributes.</param>
         /// <param name="parameterAnalyzer">The Command Parameter Analyzer.</param>
+        /// <param name="scopeAnalyzer">Analyzer capable of retrieving scopes.</param>
         /// <param name="syntaxUtils">Utilities for working with roslyn syntaxes.</param>
         public TemplateMetadataGenerator(
             ICommandAttributeUtils commandAttributeUtils,
             ICommandParameterAnalyzer parameterAnalyzer,
+            ICommandScopeAnalyzer scopeAnalyzer,
             ISyntaxUtils syntaxUtils
         )
         {
             this.commandAttributeUtils = commandAttributeUtils;
             this.parameterAnalyzer = parameterAnalyzer;
+            this.scopeAnalyzer = scopeAnalyzer;
             this.syntaxUtils = syntaxUtils;
         }
 
@@ -50,6 +53,7 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
                 var requiredRole = commandAttributeUtils.GetCommandRequiredRole(context.AttributeData);
                 var startupType = commandAttributeUtils.GetCommandStartupTypeName(context.AttributeData);
                 var parameters = parameterAnalyzer.GetCommandParameters(context);
+                var scopes = scopeAnalyzer.GetCommandScopes(context);
 
                 yield return new CommandMetadata(
                     name,
@@ -57,7 +61,8 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
                     assemblyName,
                     intermediateOutputPath,
                     outputPath,
-                    parameters
+                    parameters,
+                    scopes
                 )
                 {
                     Description = description,

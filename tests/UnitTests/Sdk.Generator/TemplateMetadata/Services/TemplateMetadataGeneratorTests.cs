@@ -214,5 +214,23 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
             metadatas[0].Parameters.Should().BeEquivalentTo(parameters);
             parameterAnalyzer.Received().GetCommandParameters(Is(commandContext));
         }
+
+        [Test, Auto]
+        public void ShouldAddScopesMetadata(
+            IEnumerable<string> scopes,
+            CommandContext commandContext,
+            [Frozen, Substitute] ICommandScopeAnalyzer scopeAnalyzer,
+            [Frozen, Substitute] ICommandAttributeUtils commandAttributeUtils,
+            [Target] TemplateMetadataGenerator generator
+        )
+        {
+            scopeAnalyzer.GetCommandScopes(Any<CommandContext>()).Returns(scopes);
+
+            var result = generator.GenerateTemplateMetadata(new[] { commandContext });
+            var metadatas = JsonSerializer.Deserialize<CommandMetadata[]>(result)!;
+
+            metadatas[0].Scopes.Should().BeEquivalentTo(scopes);
+            scopeAnalyzer.Received().GetCommandScopes(Is(commandContext));
+        }
     }
 }

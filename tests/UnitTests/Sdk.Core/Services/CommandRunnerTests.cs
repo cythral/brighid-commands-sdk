@@ -27,6 +27,7 @@ namespace Brighid.Commands.Sdk
                 string id,
                 string sourceSystem,
                 string sourceSystemId,
+                string token,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
                 [Target] CommandRunner<TestCommandInput> runner,
@@ -35,7 +36,7 @@ namespace Brighid.Commands.Sdk
             {
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
 
                 await runner.Run(context, cancellationToken);
 
@@ -47,6 +48,7 @@ namespace Brighid.Commands.Sdk
                 string id,
                 string sourceSystem,
                 string sourceSystemId,
+                string token,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
                 [Target] CommandRunner<TestCommandInput> runner,
@@ -55,7 +57,7 @@ namespace Brighid.Commands.Sdk
             {
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
 
                 await runner.Run(context, cancellationToken);
 
@@ -67,6 +69,7 @@ namespace Brighid.Commands.Sdk
                 string id,
                 string sourceSystem,
                 string sourceSystemId,
+                string token,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
                 [Target] CommandRunner<TestCommandInput> runner,
@@ -75,7 +78,7 @@ namespace Brighid.Commands.Sdk
             {
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
 
                 await runner.Run(context, cancellationToken);
 
@@ -87,6 +90,7 @@ namespace Brighid.Commands.Sdk
                 string id,
                 string sourceSystem,
                 string sourceSystemId,
+                string token,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
                 [Target] CommandRunner<TestCommandInput> runner,
@@ -95,7 +99,7 @@ namespace Brighid.Commands.Sdk
             {
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
 
                 await runner.Run(context, cancellationToken);
 
@@ -107,6 +111,7 @@ namespace Brighid.Commands.Sdk
                 string id,
                 string sourceSystem,
                 string sourceSystemId,
+                string token,
                 CommandResult expectedResult,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
@@ -117,7 +122,7 @@ namespace Brighid.Commands.Sdk
                 command.Run(Any<CommandContext<TestCommandInput>>(), Any<CancellationToken>()).Returns(expectedResult);
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
 
                 var result = await runner.Run(context, cancellationToken);
 

@@ -15,17 +15,20 @@ namespace Brighid.Commands.Sdk
         /// <param name="principal">The principal invoking the command.</param>
         /// <param name="sourceSystem">The name of the system the command is being invoked from.</param>
         /// <param name="sourceSystemId">ID of the sender/channel in the source system the command request originated from.</param>
+        /// <param name="token">Token of the user executing the command.</param>
         public CommandContext(
             TInput input,
             ClaimsPrincipal principal,
             string sourceSystem,
-            string sourceSystemId
+            string sourceSystemId,
+            string? token
         )
         {
             Input = input;
             Principal = principal;
             SourceSystem = sourceSystem;
             SourceSystemId = sourceSystemId;
+            Token = token;
         }
 
         /// <summary>
@@ -47,5 +50,11 @@ namespace Brighid.Commands.Sdk
         /// Gets the ID of the sender/channel within the source system the command request originated from.
         /// </summary>
         public string SourceSystemId { get; }
+
+        /// <summary>
+        /// Gets the token of the user who is executing the command.  In order for the token to be passed to the command context,
+        /// the command must have the 'token' scope.
+        /// </summary>
+        public string? Token { get; }
     }
 }
