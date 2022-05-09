@@ -38,9 +38,8 @@ namespace Brighid.Commands.Sdk.PackageTool
             cancellationToken.ThrowIfCancellationRequested();
             var template = new Template();
 
-            for (int i = 0; i < metadata.Length; i++)
+            foreach (var commandMetadata in metadata)
             {
-                var commandMetadata = metadata[i];
                 var properties = new CommandResourceProperties
                 {
                     Name = commandMetadata.Name,
@@ -53,7 +52,7 @@ namespace Brighid.Commands.Sdk.PackageTool
                     EmbeddedLocation = await commandService.PackageArtifact(commandMetadata, cancellationToken),
                 };
 
-                template.Resources.Add($"Command{i}", new CommandResource(properties));
+                template.Resources.Add($"{commandMetadata.Name}Command", new CommandResource(properties));
             }
 
             using var writer = new StreamWriter(stream, leaveOpen: true);
