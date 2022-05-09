@@ -39,7 +39,7 @@ function bump_version()
     git checkout master
 }
 
-# ensure_default_branch
-# create_release
+ensure_default_branch
+create_release
 bump_version
 
