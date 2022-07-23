@@ -1458,8 +1458,8 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "11.2.1",
-        "contentHash": "tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw=="
+        "resolved": "12.0.0",
+        "contentHash": "sMp20zI63j7xVoor98vGeDxteLeyuAlM330L7XbXxMMPjLdP1mwoK/5Nn/8Vldc9hUMN5otkg88bVLEtQnPdaw=="
       },
       "Brighid.Commands.Sdk": {
         "type": "Project",
@@ -1492,7 +1492,7 @@
       "Brighid.Commands.Sdk.Models": {
         "type": "Project",
         "dependencies": {
-          "YamlDotNet": "11.2.1"
+          "YamlDotNet": "12.0.0"
         }
       },
       "Brighid.Commands.Sdk.PackageTool": {
@@ -1503,7 +1503,7 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.1",
           "Serilog.AspNetCore": "6.0.1",
-          "YamlDotNet": "11.2.1"
+          "YamlDotNet": "12.0.0"
         }
       }
     }
