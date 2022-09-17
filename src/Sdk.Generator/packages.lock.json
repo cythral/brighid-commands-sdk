@@ -1443,13 +1443,13 @@
       },
       "YamlDotNet": {
         "type": "Transitive",
-        "resolved": "12.0.0",
-        "contentHash": "sMp20zI63j7xVoor98vGeDxteLeyuAlM330L7XbXxMMPjLdP1mwoK/5Nn/8Vldc9hUMN5otkg88bVLEtQnPdaw=="
+        "resolved": "12.0.1",
+        "contentHash": "MltVIOIX817Uz/TFkPSaZImdzB86X/k8QY0kFBQx6KI6GsKOk3rIlrptOhb28O0RD2WnibMoYLnCQnqfYduvaw=="
       },
       "Brighid.Commands.Sdk.Models": {
         "type": "Project",
         "dependencies": {
-          "YamlDotNet": "12.0.0"
+          "YamlDotNet": "12.0.1"
         }
       }
     }
