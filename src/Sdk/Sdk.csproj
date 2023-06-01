@@ -14,4 +14,7 @@
         <ProjectReference Include="../Sdk.Attributes/Sdk.Attributes.csproj" PrivateAssets="runtime" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="build/**" Pack="true" PackagePath="build/" />
+    </ItemGroup>
 </Project>

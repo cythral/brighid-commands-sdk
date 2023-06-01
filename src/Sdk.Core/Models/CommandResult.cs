@@ -3,7 +3,7 @@ namespace Brighid.Commands.Sdk
     /// <summary>
     /// Represents the result of executing a command.
     /// </summary>
-    public struct CommandResult
+    public readonly struct CommandResult
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandResult" /> struct.

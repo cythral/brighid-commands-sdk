@@ -121,7 +121,7 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
             CancellationToken cancellationToken
         )
         {
-            syntaxUtils.GetBuildProperty(Is("PublishDir")).Returns(outputPath);
+            syntaxUtils.GetBuildProperty(Is("OutputPath")).Returns(outputPath);
 
             var result = generator.GenerateTemplateMetadata(new[] { commandContext });
             var metadatas = JsonSerializer.Deserialize<CommandMetadata[]>(result)!;
@@ -140,7 +140,7 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
             CancellationToken cancellationToken
         )
         {
-            syntaxUtils.GetBuildProperty(Is("PublishDir")).Returns((string?)null);
+            syntaxUtils.GetBuildProperty(Is("OutputPath")).Returns((string?)null);
 
             Func<string> func = () => generator.GenerateTemplateMetadata(new[] { commandContext });
 

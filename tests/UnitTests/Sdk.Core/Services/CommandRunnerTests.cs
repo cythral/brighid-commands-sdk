@@ -86,10 +86,11 @@ namespace Brighid.Commands.Sdk
             }
 
             [Test, Auto]
-            public async Task ShouldPassSourceSystemIdToTheCommand(
+            public async Task ShouldPassSourceSystemChannelToTheCommand(
                 string id,
                 string sourceSystem,
-                string sourceSystemId,
+                string sourceSystemChannel,
+                string sourceSystemUser,
                 string token,
                 ClaimsPrincipal principal,
                 [Frozen, Substitute] ICommand<TestCommandInput> command,
@@ -99,11 +100,33 @@ namespace Brighid.Commands.Sdk
             {
                 var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
                 var stream = new MemoryStream(input);
-                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemId, token);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemChannel, sourceSystemUser, token);
 
                 await runner.Run(context, cancellationToken);
 
-                await command.Received().Run(Is<CommandContext<TestCommandInput>>(context => context.SourceSystemId == sourceSystemId), Is(cancellationToken));
+                await command.Received().Run(Is<CommandContext<TestCommandInput>>(context => context.SourceSystemChannel == sourceSystemChannel), Is(cancellationToken));
+            }
+
+            [Test, Auto]
+            public async Task ShouldPassSourceSystemUserToTheCommand(
+                string id,
+                string sourceSystem,
+                string sourceSystemChannel,
+                string sourceSystemUser,
+                string token,
+                ClaimsPrincipal principal,
+                [Frozen, Substitute] ICommand<TestCommandInput> command,
+                [Target] CommandRunner<TestCommandInput> runner,
+                CancellationToken cancellationToken
+            )
+            {
+                var input = Encoding.UTF8.GetBytes($"{{\"Id\":\"{id}\"}}");
+                var stream = new MemoryStream(input);
+                var context = new CommandContext(stream, principal, sourceSystem, sourceSystemChannel, sourceSystemUser, token);
+
+                await runner.Run(context, cancellationToken);
+
+                await command.Received().Run(Is<CommandContext<TestCommandInput>>(context => context.SourceSystemUser == sourceSystemUser), Is(cancellationToken));
             }
 
             [Test, Auto]

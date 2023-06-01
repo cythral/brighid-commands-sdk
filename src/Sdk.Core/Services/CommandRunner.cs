@@ -27,7 +27,7 @@ namespace Brighid.Commands.Sdk
         public async Task<CommandResult> Run(CommandContext context, CancellationToken cancellationToken = default)
         {
             var input = await JsonSerializer.DeserializeAsync<TInput>(context.InputStream, cancellationToken: cancellationToken);
-            var genericContext = new CommandContext<TInput>(input!, context.Principal, context.SourceSystem, context.SourceSystemId, context.Token);
+            var genericContext = new CommandContext<TInput>(input!, context.Principal, context.SourceSystem, context.SourceSystemChannel, context.SourceSystemUser, context.Token);
             return await command.Run(genericContext, cancellationToken);
         }
     }
