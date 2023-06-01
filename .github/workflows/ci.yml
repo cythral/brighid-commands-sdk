@@ -7,7 +7,7 @@ on:
     tags:
       - "*"
   pull_request:
-    types: [synchronize]
+    types: [opened, synchronize]
   schedule:
     - cron: "0 0 * * *"
 
