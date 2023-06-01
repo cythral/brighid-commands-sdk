@@ -182,15 +182,15 @@
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.13.20",
-        "contentHash": "32XGf7RG2gg32yxEniY32KBP32caIoWWnqMJ7vzw0XpeAUkyvZujW1+okAxtSBjYnZCk6pNHI3qu1HaUc+63qg=="
+        "resolved": "3.7.106.44",
+        "contentHash": "5qpfr+QGfRSmRu7URxJKVVSiklVlUIeGtToAyDj5Pw14dULXI/7Bh15V642HIS/ovgU/aDJHj7d5TdXOHeJgNQ=="
       },
       "AWSSDK.S3": {
         "type": "Transitive",
-        "resolved": "3.7.9.69",
-        "contentHash": "48S/Vfv7lktR5fTEkA+3Zw1L2iQZhmpmf0Zd5fmN0gY8z1NOk7S/lY9aoQWT688nm2QkUI27EDvfxVhdF+SWpw==",
+        "resolved": "3.7.104.24",
+        "contentHash": "sZc9thbTz5NP464fdykGTsH39n40VamoMs8ncTI2eJuQx0dxRjZbzFj9eGyK8WnTqcMn+YePhcZR4YDMuXuGtA==",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.13.20, 4.0.0)"
+          "AWSSDK.Core": "[3.7.106.44, 4.0.0)"
         }
       },
       "Castle.Core": {
@@ -1455,7 +1455,7 @@
       "Brighid.Commands.Sdk.PackageTool": {
         "type": "Project",
         "dependencies": {
-          "AWSSDK.S3": "[3.7.9.69, )",
+          "AWSSDK.S3": "[3.7.104.24, )",
           "Brighid.Commands.Sdk.Models": "[1.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
           "Microsoft.Extensions.Hosting": "[7.0.1, )",
