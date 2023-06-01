@@ -6,6 +6,6 @@
     <ItemGroup>
         <CompilerVisibleProperty Include="BrighidCommandsAdditionalProbingPath" />
         <CompilerVisibleProperty Include="IntermediateOutputPath" />
-        <CompilerVisibleProperty Include="PublishDir" />
+        <CompilerVisibleProperty Include="OutputPath" />
     </ItemGroup>
 </Project>

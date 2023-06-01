@@ -36,6 +36,32 @@ namespace Brighid.Commands.Sdk
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="CommandContext" /> class.
+        /// </summary>
+        /// <param name="inputStream">The input stream containing command arguments and options.</param>
+        /// <param name="principal">The principal invoking the command.</param>
+        /// <param name="sourceSystem">The name of the system this command is being invoked from.</param>
+        /// <param name="sourceSystemChannel">ID of the channel in the source system the command request originated from.</param>
+        /// <param name="sourceSystemUser">ID of the user in the source system the command request originated from.</param>
+        /// <param name="token">Token of the user executing the command.</param>
+        public CommandContext(
+            Stream inputStream,
+            ClaimsPrincipal principal,
+            string sourceSystem,
+            string sourceSystemChannel,
+            string sourceSystemUser,
+            string? token
+        )
+        {
+            this.inputStream = inputStream;
+            Principal = principal;
+            SourceSystem = sourceSystem;
+            SourceSystemChannel = sourceSystemChannel;
+            SourceSystemUser = sourceSystemUser;
+            Token = token;
+        }
+
+        /// <summary>
         /// Gets the input stream containing command arguments and options.
         /// </summary>
         /// <exception cref="ObjectDisposedException">Thrown if the command context has been disposed.</exception>
@@ -52,9 +78,19 @@ namespace Brighid.Commands.Sdk
         public string SourceSystem { get; }
 
         /// <summary>
-        /// Gets the ID of the sender/channel within the source system the command request originated from.
+        /// Gets the source system id. Deprecated - use Source System Channel and Source System User instead.
         /// </summary>
-        public string SourceSystemId { get; }
+        public string SourceSystemId { get; } = string.Empty;
+
+        /// <summary>
+        /// Gets the ID of the channel within the source system the command request originated from.
+        /// </summary>
+        public string SourceSystemChannel { get; } = string.Empty;
+
+        /// <summary>
+        /// Gets the ID of the user within the source system the command request originated from.
+        /// </summary>
+        public string SourceSystemUser { get; } = string.Empty;
 
         /// <summary>
         /// Gets the token of the user who is executing the command.  In order for the token to be passed to the command context,

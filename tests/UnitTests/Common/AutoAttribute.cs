@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -30,7 +29,6 @@ internal class AutoAttribute : AutoDataAttribute
         fixture.Register(() => RequestCharged.Requester);
         fixture.Register(() => SyntaxFactory.ClassDeclaration(Guid.NewGuid().ToString()));
         fixture.Register(() => SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName(Guid.NewGuid().ToString().Replace('-', '.'))));
-        fixture.Register(() => ImmutableArray.Create<KeyValuePair<string, TypedConstant>>());
         fixture.Customize(new AutoNSubstituteCustomization { ConfigureMembers = true });
         fixture.Customize(new SupportMutableValueTypesCustomization());
         fixture.Customizations.Add(new OptionsRelay());

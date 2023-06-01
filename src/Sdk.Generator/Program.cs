@@ -34,24 +34,38 @@ namespace Brighid.Commands.Sdk.Generator
             {
                 context.ReportDiagnostic(exception);
             }
+            catch (Exception exception)
+            {
+                context.ReportDiagnostic(new GenerationFailureException { Description = exception.Message });
+            }
         }
 
         private static void SetupDependencyResolver(GeneratorExecutionContext context)
         {
             var additionalProbingPath = GetAdditionalProbingPath(context);
-            var dllsInProbingPath = from file in Directory.GetFiles(additionalProbingPath, $"*.dll", SearchOption.AllDirectories)
-                                    where file.Contains("netstandard") || file.Contains("net6.0") || file.Contains("net5.0")
-                                    select file;
 
             AssemblyLoadContext.Default.Resolving += (_, name) =>
             {
-                var query = from dll in dllsInProbingPath
-                            where dll.EndsWith($"{name.Name}.dll", true, null)
-                            let assembly = TryLoadAssembly(dll)
-                            where assembly != null
-                            select assembly;
+                var matchingFiles = from file in Directory.GetFiles(additionalProbingPath, $"{name.Name}.dll", SearchOption.AllDirectories)
+                                    where file.Contains("netstandard") || file.Contains("net5.0") || file.Contains("net6.0") || file.Contains("net7.0")
+                                    select file;
 
-                return query.FirstOrDefault();
+                foreach (var matchingFile in matchingFiles)
+                {
+                    try
+                    {
+                        var assembly = Assembly.LoadFile(matchingFile);
+                        if (assembly.GetName().Version >= name.Version)
+                        {
+                            return assembly;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+
+                return null;
             };
         }
 

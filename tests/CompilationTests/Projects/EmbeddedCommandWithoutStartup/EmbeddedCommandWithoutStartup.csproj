@@ -2,6 +2,7 @@
     <PropertyGroup>
         <IsPackable>false</IsPackable>
         <NoWarn>CS8019</NoWarn>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
