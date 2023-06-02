@@ -48,7 +48,7 @@ namespace Brighid.Commands.Sdk.Generator.TemplateMetadata
                 var typeName = syntaxUtils.GetFullTypeName(context.ClassDeclaration) + "Registrator";
                 var assemblyName = context.SemanticModel.Compilation.AssemblyName ?? string.Empty;
                 var intermediateOutputPath = syntaxUtils.GetBuildProperty("IntermediateOutputPath") ?? throw new MissingIntermediateOutputPathException();
-                var outputPath = syntaxUtils.GetBuildProperty("OutputPath") ?? throw new MissingOutputPathException();
+                var outputPath = syntaxUtils.GetBuildProperty("PublishDir") ?? throw new MissingOutputPathException();
                 var description = commandAttributeUtils.GetCommandDescription(context.AttributeData);
                 var requiredRole = commandAttributeUtils.GetCommandRequiredRole(context.AttributeData);
                 var startupType = commandAttributeUtils.GetCommandStartupTypeName(context.AttributeData);
