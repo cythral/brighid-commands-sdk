@@ -9,7 +9,7 @@ namespace Brighid.Commands.Sdk.Generator
         public override string Id => "BCS003";
 
         /// <inheritdoc />
-        public override string Title => "Missing OutputPath MSBuild Property";
+        public override string Title => "Missing PublishDir MSBuild Property";
 
         /// <inheritdoc />
         public override string Description => "Could not find the Output Path in the project's MSBuild Properties.";
