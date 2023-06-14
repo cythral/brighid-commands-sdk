@@ -116,14 +116,14 @@
       },
       "NuGet.Commands": {
         "type": "Direct",
-        "requested": "[6.6.0, )",
-        "resolved": "6.6.0",
-        "contentHash": "SFzALz7NIKFdDgTYDByBCVgZJkv/dRIPc2ksgq+2X8Y4Bzq34xNeUNZrCCREP9S8jz6KgAKEjfzvJeJVs2JEaQ==",
+        "requested": "[6.6.1, )",
+        "resolved": "6.6.1",
+        "contentHash": "D1b7gTk1wp7sxscLhS8O/yoErsRVbR4zJvLVD4jo1sgxh42ZOWKpMkhznPUxpvmCxBhw9hAy8/yWrRH91SfdEQ==",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "6.0.0",
-          "NuGet.Credentials": "6.6.0",
-          "NuGet.ProjectModel": "6.6.0"
+          "NuGet.Credentials": "6.6.1",
+          "NuGet.ProjectModel": "6.6.1"
         }
       },
       "NuGet.Frameworks": {
@@ -629,10 +629,10 @@
       },
       "NuGet.Credentials": {
         "type": "Transitive",
-        "resolved": "6.6.0",
-        "contentHash": "7OTzxApsf+pY8jjR4H3WZVfVKPsZWXHbO1hyoF2yAwTfy17didOxicAMg3HMwGeWUx7uvjKpxrlTefTnZyFgyw==",
+        "resolved": "6.6.1",
+        "contentHash": "TuOlXcE1ajwdtfnQaUjDv2xO2u/WDS56/b5jHfEBZetKfcpT0W3iNOqInVPO0qxRxXK5/HXUKVr2Pya1LsVVnA==",
         "dependencies": {
-          "NuGet.Protocol": "6.6.0"
+          "NuGet.Protocol": "6.6.1"
         }
       },
       "NuGet.DependencyResolver.Core": {
