@@ -17,7 +17,7 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
         <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5" />
         <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.5.0" />
-        <PackageReference Include="NuGet.Frameworks" Version="6.6.1" />
+        <PackageReference Include="NuGet.Frameworks" Version="6.7.0" />
         <PackageReference Include="NuGet.Commands" Version="6.6.1" />
         <PackageReference Include="NuGet.ProjectModel" Version="6.6.1" />
         <PackageReference Include="nunit" Version="3.13.3" />
